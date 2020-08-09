@@ -1,0 +1,87 @@
+﻿<UserControl x:Class="View.InquiryViews.MainInquiryView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:View.InquiryViews"
+             xmlns:vm="clr-namespace:ViewModel.ViewModels.InquiryViewModels;assembly=ViewModel" 
+             xmlns:view="clr-namespace:View.InquiryViews"
+             mc:Ignorable="d" 
+             d:DesignHeight="800" d:DesignWidth="1320">
+
+    <UserControl.Resources>
+        <DataTemplate DataType="{x:Type vm:InquiryFilesViewModel}">
+            <view:InquiryFilesView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:OfferViewModel}">
+            <view:OfferView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:CompareOffersViewModel}">
+            <view:CompareOffersView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:SendedInquiryViewModel}">
+            <view:SendedInquiries/>
+        </DataTemplate>
+    </UserControl.Resources>
+    <Grid>
+        <Canvas>
+            <Grid >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="220"/>
+                    <RowDefinition Height="220"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="300"/>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="300"/>
+                    <ColumnDefinition Width="30"/>
+                    <ColumnDefinition Width="300"/>
+                    <ColumnDefinition Width="30"/>
+                    <ColumnDefinition Width="300"/>
+                    <ColumnDefinition Width="30"/>
+                    <ColumnDefinition Width="*"/>
+
+                </Grid.ColumnDefinitions>
+                <Menu Grid.ColumnSpan="7" FontSize="16" FontFamily="Arial">
+                    <MenuItem Header="Dodaj Zapytanie" Command="{Binding CreateNewInquiryCommand}">
+                    </MenuItem>
+                </Menu>
+                <TextBlock Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="3"  Text="{Binding NameMessage, Mode=OneWay}"
+                   FontWeight="Medium" FontSize="20"  Margin="10,5,0,0">
+                </TextBlock>
+                <TextBlock Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="3"  Text="{Binding DateMessage, Mode=OneWay}"
+                   FontWeight="Medium" FontSize="20" Margin="10,0,0,0">
+                </TextBlock>
+                <view:NavigationView Grid.Row="1" Grid.RowSpan="4" DataContext="{Binding NavigationViewModel}"/>
+                <ContentControl Grid.Row="3" Grid.Column="2" Grid.RowSpan="3" Content="{Binding InquiryFilesViewModel}"/>
+                <ContentControl Grid.Row="3" Grid.Column="4"  Grid.RowSpan="2" Content="{Binding OfferViewModel}"/>
+                <ContentControl Grid.Row="3" Grid.Column="6"  Grid.RowSpan="2" Content="{Binding CompareOffersViewModel}"/>
+                <ContentControl Grid.Row="4" Grid.Column="6" Grid.RowSpan="2" Content="{Binding SendedInquiryViewModel}"/>
+            </Grid>
+            <Line 
+          Grid.Row="2"
+          X1="0"
+          X2='{Binding ActualWidth, Mode=OneWay, 
+              RelativeSource={RelativeSource FindAncestor,
+              AncestorType={x:Type local:MainInquiryView}}}'
+          Y1='30' 
+          Y2='30'
+          Stroke="Gray"
+          StrokeThickness='2' />
+            <Line 
+          X1="300"
+          X2='{Binding ActualWidth, Mode=OneWay, 
+              RelativeSource={RelativeSource FindAncestor,
+              AncestorType={x:Type local:MainInquiryView}}}'
+          Y1='90' 
+          Y2='90'
+          Stroke="Gray"
+          StrokeThickness='2' />
+        </Canvas>
+
+    </Grid>
+</UserControl>

@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Łukasz\Documents\GitHub\Projekt_Inzynierskii\View\obj\Release\
+C:\Users\Moje\Documents\GitHub\Projekt_Inzynierskii\View\obj\Release\
 View
 none
 false
 TRACE
-C:\Users\Łukasz\Documents\GitHub\Projekt_Inzynierskii\View\App.xaml
-4-861347922
+C:\Users\Moje\Documents\GitHub\Projekt_Inzynierskii\View\App.xaml
+91878265795
 
-10880840600
-22906069539
-MainWindow.xaml;Views\InquiryFilesView.xaml;Views\NavigationView.xaml;Views\OfferView.xaml;
+15-721989581
+281224233551
+DocumentationViews\MainDocumentationView.xaml;DocumentationViews\DrawingsView.xaml;DocumentationViews\DocumentationNavigationView.xaml;MainWindow.xaml;InquiryViews\CompareOffersView.xaml;InquiryViews\InquiryFilesView.xaml;InquiryViews\NavigationView.xaml;InquiryViews\OfferView.xaml;InquiryViews\SendedInquiries.xaml;
 
 True
 

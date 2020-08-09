@@ -61,6 +61,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\AddedFile.cs" />
+    <Compile Include="Entities\Drawing.cs" />
+    <Compile Include="Entities\DrawingIndustry.cs" />
+    <Compile Include="Entities\DrawingOutOfDate.cs" />
     <Compile Include="Entities\Industry.cs" />
     <Compile Include="Entities\Inquiry.cs" />
     <Compile Include="Entities\Offer.cs" />

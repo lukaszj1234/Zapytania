@@ -1,0 +1,30 @@
+﻿<UserControl x:Class="View.InquiryViews.NavigationView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:View.InquiryViews"
+             mc:Ignorable="d" 
+             d:DesignHeight="450">
+
+    <Canvas>
+        <DataGrid Name="dgDownloadsInfo" Grid.Row="0" Grid.Column="0" AutoGenerateColumns="False" CanUserAddRows="False"
+              CanUserDeleteRows="False" CanUserReorderColumns="False" CanUserResizeColumns="False"
+              CanUserResizeRows="False" CanUserSortColumns="True" SelectionMode="Single" ScrollViewer.CanContentScroll="True" 
+              ScrollViewer.VerticalScrollBarVisibility="Auto" MaxHeight="700" MaxWidth="290" 
+              SelectedItem="{Binding SelectedInquiry, Mode=TwoWay}"  ItemsSource="{Binding Inquiry}" ColumnWidth="Auto" MinColumnWidth="135">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Nazwa" FontSize="12" FontFamily="Arial" Binding="{Binding Path=DisplayInquiry}"/>
+                <DataGridTextColumn Header="Branża" FontSize="12" FontFamily="Arial" Binding="{Binding Path=DisplayIndustry, Mode=TwoWay }"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Line 
+          X1="300"
+          X2="300"
+          Y1='0' 
+          Y2='1000'
+          Stroke="DarkOrange"
+          StrokeThickness='2' />
+    </Canvas>
+
+</UserControl>

@@ -1,0 +1,31 @@
+﻿<UserControl x:Class="View.DocumentationViews.DocumentationNavigationView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ViewModel.ViewModels.DocumentationViewModels;assembly=ViewModel" 
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="200">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="85"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal"  Grid.Row="0">
+            <Label Content="Branża" Foreground="#0d88fc"  FontWeight="DemiBold" Margin="60,10,10,10" FontSize="24" />
+        </StackPanel>
+        <StackPanel Grid.Row="1">
+            <StackPanel Orientation="Horizontal">
+                <Button Content="Dodaj" Width="80" Height="20" Margin="10" FontWeight="DemiBold" Command="{Binding AddIndustryCommand}"/>
+                <Button Content="Usuń" Width="80" Height="20" Margin="10" FontWeight="DemiBold" Command="{Binding DeleteIndustryCommand}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal"  Grid.Row="2">
+                <Button Content="Zmień Nazwę" Width="160" Height="24" Margin="20,5,10,5" FontWeight="DemiBold" Command="{Binding RenameIndustryCommand}"/>
+            </StackPanel>
+        </StackPanel>
+        <ListView Grid.Row="3" ItemsSource="{Binding Industry}"
+                  SelectedItem="{Binding SelectedIndustry, Mode=TwoWay}"  
+                  DisplayMemberPath="DisplayIndustry"  FontWeight="DemiBold" Margin="10"/>
+    </Grid>
+</UserControl>

@@ -20,5 +20,8 @@ namespace ProjektInzynierski.DataAccess.InquiryContext
         public DbSet<Offer> Offers { get; set; }
         public DbSet<ReferenceOffer> ReferenceOffers { get; set; }
         public DbSet<SendedInquiry> SendedInquiries { get; set; }
+        public DbSet<DrawingOutOfDate> DrawingsOutOfDate { get; set; }
+        public DbSet<Drawing> Drawings { get; set; }
+        public DbSet<DrawingIndustry> DrawingIndustries { get; set; }
     }
 }

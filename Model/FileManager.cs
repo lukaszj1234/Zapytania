@@ -45,6 +45,46 @@ namespace Model
             }
             return returnList;
         }
+
+        public List<String> GetAddedDrawingsPath()
+        {
+            List<string> filePaths = new List<string>();
+            OpenFileDialog fileDialog = new OpenFileDialog();
+            fileDialog.Title = "Wybierz plik";
+            fileDialog.InitialDirectory = "";
+            fileDialog.FilterIndex = 1;
+            fileDialog.RestoreDirectory = true;
+            fileDialog.Multiselect = true;
+            var openDialogCheck = fileDialog.ShowDialog();
+            if (openDialogCheck == DialogResult.OK)
+            {
+                foreach (String filePath in fileDialog.FileNames)
+                {
+                    filePaths.Add(filePath);
+                }
+            }
+            return filePaths;
+        }
+
+        public string GetUpdateDrawingPath()
+        {
+            string filePath = null;
+            OpenFileDialog fileDialog = new OpenFileDialog();
+            fileDialog.Title = "Wybierz plik";
+            fileDialog.InitialDirectory = "";
+            fileDialog.FilterIndex = 1;
+            fileDialog.RestoreDirectory = true;
+            fileDialog.Multiselect = false;
+            var openDialogCheck = fileDialog.ShowDialog();
+            if (openDialogCheck == DialogResult.OK)
+            {
+                foreach (String item in fileDialog.FileNames)
+                {
+                    filePath= item;
+                }
+            }
+            return filePath;
+        }
         public void CopyFiles(List<string> paths, string destPath)
         {
             foreach (string path in paths)
@@ -54,10 +94,11 @@ namespace Model
             }
         }
 
-        public void CopyFiles(string path, string destPath)
+        public string CopyFiles(string path, string destPath)
         {
                 string tmpPath = System.IO.Path.Combine(destPath, Path.GetFileName(path));
-                File.Copy(path, tmpPath);   
+                File.Copy(path, tmpPath);
+                return tmpPath;
         }
 
         public void DeleteFile(string path)

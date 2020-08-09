@@ -10,11 +10,11 @@ none
 false
 TRACE
 C:\Users\Moje\Documents\GitHub\Zapytania\View\App.xaml
-61891397657
+10-1859528826
 
-11-825688977
-281382811577
-MainWindow.xaml;Views\CompareOffersView.xaml;Views\InquiryFilesView.xaml;Views\NavigationView.xaml;Views\OfferView.xaml;Views\SendedInquiries.xaml;
+14-882143733
+31528973030
+DocumentationViews\OutOfDateDrawingsView.xaml;DocumentationViews\DrawingsView.xaml;DocumentationViews\DocumentationNavigationView.xaml;MainWindow.xaml;InquiryViews\CompareOffersView.xaml;InquiryViews\InquiryFilesView.xaml;InquiryViews\NavigationView.xaml;InquiryViews\OfferView.xaml;InquiryViews\SendedInquiries.xaml;Resources\Lines.xaml;
 
 False
 

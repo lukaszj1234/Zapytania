@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 namespace ViewModel.Data.Lookups
 {
     public class LookupDataService : ILookupDataService, IFilesLookupService,
-        IOfferLookupService, IReferenceOfferLookupService, ISendedInquiryLookupService, IIndustryLookupDataService
+        IOfferLookupService, IReferenceOfferLookupService, ISendedInquiryLookupService, IIndustryLookupDataService, IDrawingIndystryLookupService
     {
         private Func<InquiryContext> _contextCreator;
 
@@ -34,11 +34,25 @@ namespace ViewModel.Data.Lookups
             return list;
         }
 
+
         public async Task<IEnumerable<LookupItem>> GetIndustryLookupAsync()
         {
             using (var ctx = _contextCreator())
             {
                 return await ctx.Industries.AsNoTracking()
+                       .Select(i => new LookupItem
+                       {
+                           Id = i.Id,
+                           DisplayIndustry = i.Name,
+                       }).ToListAsync();
+            }
+        }
+
+        public async Task<IEnumerable<LookupItem>> GetDrawingIndustryLookupAsync()
+        {
+            using (var ctx = _contextCreator())
+            {
+                return await ctx.DrawingIndustries.AsNoTracking()
                        .Select(i => new LookupItem
                        {
                            Id = i.Id,

@@ -1,10 +1,11 @@
-﻿using MahApps.Metro.Controls;
-using MahApps.Metro.Controls.Dialogs;
+﻿
+using MahApps.Metro.Controls;
 using System;
 using System.Windows;
 using System.Windows.Controls;
 using ViewModel;
 using ViewModel.ViewModels;
+using ViewModel.ViewModels.InquiryViewModels;
 
 namespace View
 {
@@ -26,5 +27,9 @@ namespace View
             await _viewModel.LoadAsync();
         }
 
+        private void NavigationView_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

@@ -7,6 +7,7 @@ namespace Model
     {
         string CreateNewInquiryFolder(string name);
         string CreateMainFolder();
+        string CreateMainDocumentationFolder();
         void DeleteFolder(string path);
         string CreateNewFolder(string path, string name);
         string RenameFolder(string directory, string newName);

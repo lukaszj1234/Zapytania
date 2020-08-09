@@ -25,6 +25,16 @@ namespace Model
             return pathString;
         }
 
+        public string CreateMainDocumentationFolder()
+        {
+            string pathString = System.IO.Path.Combine(GetFilePath(), "Dokumentacja");
+            if (Directory.Exists(pathString) == false)
+            {
+                System.IO.Directory.CreateDirectory(pathString);
+            }
+            return pathString;
+        }
+
         public string CreateNewFolder(string path, string name)
         {
             string pathString = System.IO.Path.Combine(path, name);

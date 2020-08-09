@@ -7,8 +7,11 @@ namespace Model
     {
         List<AddedFile> AddFile(string dstPath, int id, List<AddedFile> existingFile);
         void CopyFiles(List<string> paths, string destPath);
+        string CopyFiles(string path, string destPath);
         void DeleteFile(string path);
         ReferenceOffer AddReferenceOffer(string dstPath, int inquiryId);
         List<Offer> AddOffer(string dstPath, int inquiryId, List<Offer> existingFiles);
+        List<string> GetAddedDrawingsPath();
+        string GetUpdateDrawingPath();
     }
 }

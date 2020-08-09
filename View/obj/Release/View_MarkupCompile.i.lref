@@ -1,7 +1,12 @@
-﻿C:\Users\Łukasz\Documents\GitHub\Projekt_Inzynierskii\View\obj\Release\GeneratedInternalTypeHelper.g.i.cs
-FC:\Users\Łukasz\Documents\GitHub\Projekt_Inzynierskii\View\App.xaml;;
-FC:\Users\Łukasz\Documents\GitHub\Projekt_Inzynierskii\View\MainWindow.xaml;;
-FC:\Users\Łukasz\Documents\GitHub\Projekt_Inzynierskii\View\Views\InquiryFilesView.xaml;;
-FC:\Users\Łukasz\Documents\GitHub\Projekt_Inzynierskii\View\Views\NavigationView.xaml;;
-FC:\Users\Łukasz\Documents\GitHub\Projekt_Inzynierskii\View\Views\OfferView.xaml;;
+﻿C:\Users\Moje\Documents\GitHub\Projekt_Inzynierskii\View\obj\Release\GeneratedInternalTypeHelper.g.i.cs
+FC:\Users\Moje\Documents\GitHub\Projekt_Inzynierskii\View\App.xaml;;
+FC:\Users\Moje\Documents\GitHub\Projekt_Inzynierskii\View\DocumentationViews\MainDocumentationView.xaml;;
+FC:\Users\Moje\Documents\GitHub\Projekt_Inzynierskii\View\DocumentationViews\DrawingsView.xaml;;
+FC:\Users\Moje\Documents\GitHub\Projekt_Inzynierskii\View\DocumentationViews\DocumentationNavigationView.xaml;;
+FC:\Users\Moje\Documents\GitHub\Projekt_Inzynierskii\View\MainWindow.xaml;;
+FC:\Users\Moje\Documents\GitHub\Projekt_Inzynierskii\View\InquiryViews\CompareOffersView.xaml;;
+FC:\Users\Moje\Documents\GitHub\Projekt_Inzynierskii\View\InquiryViews\InquiryFilesView.xaml;;
+FC:\Users\Moje\Documents\GitHub\Projekt_Inzynierskii\View\InquiryViews\NavigationView.xaml;;
+FC:\Users\Moje\Documents\GitHub\Projekt_Inzynierskii\View\InquiryViews\OfferView.xaml;;
+FC:\Users\Moje\Documents\GitHub\Projekt_Inzynierskii\View\InquiryViews\SendedInquiries.xaml;;
 

@@ -5,16 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns:local="clr-namespace:View"
-        xmlns:vm="clr-namespace:ViewModel.ViewModels;assembly=ViewModel" 
+        xmlns:vm="clr-namespace:ViewModel.ViewModels.InquiryViewModels;assembly=ViewModel" 
+        xmlns:vmm="clr-namespace:ViewModel.ViewModels.DocumentationViewModels;assembly=ViewModel" 
         xmlns:Dialog="clr-namespace:MahApps.Metro.Controls.Dialogs;assembly=MahApps.Metro"
         Dialog:DialogParticipation.Register="{Binding}"
           
-        xmlns:view="clr-namespace:View.Views"
+        xmlns:view="clr-namespace:View.InquiryViews"
+        xmlns:docview="clr-namespace:View.DocumentationViews"
         mc:Ignorable="d"
-        Title="Zapytania ofertowe" Height="Auto" Width="1320">
- 
+        Title="Zapytania ofertowe" MinHeight="800" Width="1330">
+
+
     <Window.Resources>
-        
         <DataTemplate DataType="{x:Type vm:InquiryFilesViewModel}">
             <view:InquiryFilesView/>
         </DataTemplate>
@@ -28,47 +30,116 @@
             <view:SendedInquiries/>
         </DataTemplate>
 
+        <DataTemplate DataType="{x:Type vmm:DrawingsViewModel}">
+            <docview:DrawingsView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vmm:OutOfDateDrawingsViewModel}">
+            <docview:OutOfDateDrawingsView/>
+        </DataTemplate>
     </Window.Resources>
-    <Canvas>
-        <Grid >
-
-            <Grid.RowDefinitions>
-                <RowDefinition Height="30"/>
-                <RowDefinition Height="30"/>
-                <RowDefinition Height="30"/>
-                <RowDefinition Height="220"/>
-                <RowDefinition Height="220"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="300"/>
-                <ColumnDefinition Width="20"/>
-                <ColumnDefinition Width="300"/>
-                <ColumnDefinition Width="30"/>
-                <ColumnDefinition Width="300"/>
-                <ColumnDefinition Width="30"/>
-                <ColumnDefinition Width="300"/>
-                <ColumnDefinition Width="30"/>
-                <ColumnDefinition Width="*"/>
-
-            </Grid.ColumnDefinitions>
-            <Menu Grid.ColumnSpan="7" FontSize="16" FontFamily="Arial">
-                <MenuItem Header="Dodaj Zapytanie" Command="{Binding CreateNewInquiryCommand}">
-                </MenuItem>
-            </Menu>
-            <TextBlock Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="3"  Text="{Binding NameMessage, Mode=OneWay}"
+    <TabControl  d:DataContext="{d:DesignInstance Controls:MetroTabControl}"
+                 Style="{DynamicResource MahApps.Styles.TabControl.Animated}"
+                 Controls:HeaderedControlHelper.HeaderFontSize="18">
+        <TabItem Header="Dokumentacja">
+            <Canvas>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="250"/>
+                    <ColumnDefinition Width="40"/>
+                    <ColumnDefinition Width="300"/>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="500"/>
+                </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="100"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                <docview:DocumentationNavigationView Grid.Row="0" Grid.Column="0" Grid.RowSpan="2"  DataContext="{Binding DocumentationNavigationViewModel}" HorizontalAlignment="Center"/>
+                <ContentControl Grid.Row="1" Grid.Column="2"  Content="{Binding DrawingsViewModel}" HorizontalAlignment="Center"/>
+                <ContentControl Grid.Row="1" Grid.Column="4"  Content="{Binding OutOfDateDrawingsViewModel}" />
+                    <StackPanel Orientation="Vertical" Grid.Column="2" Grid.ColumnSpan="4" >
+                        <TextBlock Grid.Row="0"  Text="{Binding DocumentationNameMessage, Mode=OneWay}"
+                   FontWeight="Medium" FontSize="20"  Margin="10,20,0,0">
+                    </TextBlock>
+                        <TextBlock Text="{Binding DocumentationDateMessage, Mode=OneWay}"
+                   FontWeight="Medium" FontSize="20" Margin="10,10,0,0">
+                    </TextBlock>
+                    </StackPanel>
+                </Grid>
+                <Line 
+          X1="0"
+          X2='{Binding ActualWidth, Mode=OneWay, 
+              RelativeSource={RelativeSource FindAncestor,
+              AncestorType={x:Type local:MainWindow}}}'
+          Y1='10' 
+          Y2='10'
+         Style="{StaticResource accentLine}"/>
+                <Line 
+          X1="265"
+          X2="265"
+          Y1='10' 
+          Y2='{Binding ActualWidth, Mode=OneWay, 
+              RelativeSource={RelativeSource FindAncestor,
+              AncestorType={x:Type local:MainWindow}}}'
+         Style="{StaticResource accentLine}"/>
+                <Line 
+          X1="265"
+          X2='{Binding ActualWidth, Mode=OneWay, 
+              RelativeSource={RelativeSource FindAncestor,
+              AncestorType={x:Type local:MainWindow}}}'
+          Y1='100' 
+          Y2='100'
+         Style="{StaticResource accentLine}"/>
+                <Line 
+          X1="605"
+          X2="605"
+          Y1='100' 
+          Y2='{Binding ActualWidth, Mode=OneWay, 
+              RelativeSource={RelativeSource FindAncestor,
+              AncestorType={x:Type local:MainWindow}}}'
+         Style="{StaticResource accentLine}"/> 
+            </Canvas>
+        </TabItem>
+        <TabItem Header="Zapytania">
+            <Canvas>
+                <Grid >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="220"/>
+                        <RowDefinition Height="400"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="17"/>
+                        <ColumnDefinition Width="36"/>
+                        <ColumnDefinition Width="30"/>
+                        <ColumnDefinition Width="*" MinWidth="217"/>
+                        <ColumnDefinition Width="30"/>
+                        <ColumnDefinition Width="*" MinWidth="300"/>
+                        <ColumnDefinition Width="30"/>
+                        <ColumnDefinition Width="*" MinWidth="300"/>
+                        <ColumnDefinition Width="30"/>
+                        <ColumnDefinition Width="*" MinWidth="300"/>
+                        <ColumnDefinition Width="50"/>
+                    </Grid.ColumnDefinitions>
+                    <Menu Grid.ColumnSpan="12" FontSize="16" FontFamily="Arial">
+                        <MenuItem Header="Dodaj Zapytanie" Command="{Binding CreateNewInquiryCommand}"/>
+                    </Menu>
+                    <TextBlock Grid.Row="1" Grid.Column="5" Grid.ColumnSpan="4"  Text="{Binding NameMessage, Mode=OneWay}"
                    FontWeight="Medium" FontSize="20"  Margin="10,5,0,0">
-            </TextBlock>
-            <TextBlock Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="3"  Text="{Binding DateMessage, Mode=OneWay}"
+                    </TextBlock>
+                    <TextBlock Grid.Row="2" Grid.Column="5" Grid.ColumnSpan="4"  Text="{Binding DateMessage, Mode=OneWay}"
                    FontWeight="Medium" FontSize="20" Margin="10,0,0,0">
-            </TextBlock>
-            <view:NavigationView Grid.Row="1" Grid.RowSpan="4" DataContext="{Binding NavigationViewModel}"/>
-            <ContentControl Grid.Row="3" Grid.Column="2" Grid.RowSpan="3" Content="{Binding InquiryFilesViewModel}"/>
-            <ContentControl Grid.Row="3" Grid.Column="4"  Grid.RowSpan="2" Content="{Binding OfferViewModel}"/>
-            <ContentControl Grid.Row="3" Grid.Column="6"  Grid.RowSpan="2" Content="{Binding CompareOffersViewModel}"/>
-            <ContentControl Grid.Row="4" Grid.Column="6" Grid.RowSpan="2" Content="{Binding SendedInquiryViewModel}"/>
-        </Grid>
-        <Line 
+                    </TextBlock>
+                    <view:NavigationView Grid.Row="1" Grid.RowSpan="4" DataContext="{Binding NavigationViewModel}" Grid.ColumnSpan="4" Loaded="NavigationView_Loaded"/>
+                    <ContentControl Grid.Row="3" Grid.Column="5" Grid.RowSpan="2" Content="{Binding InquiryFilesViewModel}" />
+                    <ContentControl Grid.Row="3" Grid.Column="7"  Grid.RowSpan="2" Content="{Binding OfferViewModel}"/>
+                    <ContentControl Grid.Row="3" Grid.Column="9"  Grid.RowSpan="2" Content="{Binding CompareOffersViewModel}"/>
+                    <ContentControl Grid.Row="4" Grid.Column="9" Content="{Binding SendedInquiryViewModel}"/>
+                </Grid>
+                <Line 
           Grid.Row="2"
           X1="0"
           X2='{Binding ActualWidth, Mode=OneWay, 
@@ -76,16 +147,16 @@
               AncestorType={x:Type local:MainWindow}}}'
           Y1='30' 
           Y2='30'
-          Stroke="Gray"
-          StrokeThickness='2' />
-        <Line 
+         Style="{StaticResource accentLine}"/>
+                <Line 
           X1="300"
           X2='{Binding ActualWidth, Mode=OneWay, 
               RelativeSource={RelativeSource FindAncestor,
               AncestorType={x:Type local:MainWindow}}}'
           Y1='90' 
           Y2='90'
-          Stroke="Gray"
-          StrokeThickness='2' />
-    </Canvas>
+          Style="{StaticResource accentLine}"/>
+            </Canvas>
+        </TabItem>
+    </TabControl>
 </Controls:MetroWindow>

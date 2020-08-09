@@ -19,7 +19,7 @@
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.Inquiries", t => t.InquiryId, cascadeDelete: true)
                 .Index(t => t.InquiryId);
-            
+
             CreateTable(
                 "dbo.Inquiries",
                 c => new

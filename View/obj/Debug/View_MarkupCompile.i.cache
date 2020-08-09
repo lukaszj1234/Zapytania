@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Łukasz\Documents\GitHub\Projekt_Inzynierskii\View\obj\Debug\
+C:\Users\Moje\Documents\GitHub\Projekt_Inzynierskii\View\obj\Debug\
 View
 none
 false
 DEBUG;TRACE
-C:\Users\Łukasz\Documents\GitHub\Projekt_Inzynierskii\View\App.xaml
-61891397657
+C:\Users\Moje\Documents\GitHub\Projekt_Inzynierskii\View\App.xaml
+10-1859528826
 
-12426757322
-28-1405278323
-MainWindow.xaml;Views\CompareOffersView.xaml;Views\InquiryFilesView.xaml;Views\NavigationView.xaml;Views\OfferView.xaml;Views\SendedInquiries.xaml;
+15-1724503100
+311751413856
+DocumentationViews\OutOfDateDrawingsView.xaml;DocumentationViews\DrawingsView.xaml;DocumentationViews\DocumentationNavigationView.xaml;MainWindow.xaml;InquiryViews\CompareOffersView.xaml;InquiryViews\InquiryFilesView.xaml;InquiryViews\NavigationView.xaml;InquiryViews\OfferView.xaml;InquiryViews\SendedInquiries.xaml;Resources\Lines.xaml;
 
 False
 

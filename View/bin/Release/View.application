@@ -7,14 +7,14 @@
     <framework targetVersion="4.7.2" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="View.exe.manifest" size="12895">
+    <dependentAssembly dependencyType="install" codebase="View.exe.manifest" size="12957">
       <assemblyIdentity name="View.exe" version="1.0.0.4" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>38K8vOR0tRuwa0eiKNOnxFldI/EPksAQuDKlnwNM28A=</dsig:DigestValue>
+        <dsig:DigestValue>Z9Dr2kYzT94P6DsU7bWQy3DdDVaAORYP2LHQYbAyhbo=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
